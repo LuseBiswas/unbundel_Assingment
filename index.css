@@ -1,0 +1,749 @@
+* {
+    text-decoration: none;
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Raleway', sans-serif;
+}
+
+.popup {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    background-color: rgba(255, 0, 0, 0.8); /* Red background color with transparency */
+    color: #000; /* Black text color */
+    padding: 20px;
+    border-radius: 10px;
+    z-index: 9999; /* Ensure the popup is on top of other elements */
+    backdrop-filter: blur(5px); /* Add blur effect to the background */
+  }
+  
+  .popup-content {
+    text-align: center;
+  }
+  
+  .popup h2 {
+    color: #000; /* Black heading color */
+  }
+  
+  .popup p {
+    color: #fff; /* White paragraph color */
+  }
+  
+  .close {
+    position: absolute;
+    top: 10px;
+    right: 10px;
+    cursor: pointer;
+    color: #000; /* Black close icon color */
+    font-size: 24px;
+  }
+
+
+.navbar {
+    background: #FFF1E6;
+    width: 100%;
+    padding: 16px 108px; /* Keep desktop version padding */
+}
+
+.navDiv {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.logo {
+    flex-shrink: 0;
+    margin-right: 10px;
+}
+
+.logo a img {
+    width: auto;
+    height: auto;
+    max-width: 100%;
+    max-height: 40px;
+}
+
+.navDiv ul {
+    list-style: none;
+    display: flex;
+    align-items: center;
+}
+
+.navDiv ul li {
+    margin-right: 20px; /* Reduce margin for smaller screens */
+    position: relative;
+}
+
+.navDiv ul li:last-child {
+    margin-right: 0;
+}
+
+.navDiv ul li a {
+    color: black;
+    font-size: 18px; /* Reduce font size for smaller screens */
+    font-weight: 500;
+    white-space: nowrap;
+    display: flex;
+  align-items: center; /* Center align text and icon vertically */
+}
+
+.navDiv ul li ul.dropdown li{
+    display: block;
+}
+
+/* Add this style to position the dropdown menu */
+
+
+
+.navDiv ul li a img {
+    width: 10px; /* Adjust the width of the drop icon */
+    height: auto;
+    margin-left: 5px; /* Add spacing between text and icon */
+  }
+
+.navDiv li ul.dropdown{
+    width: 100%;
+    background: #FFF1E6;;
+    position: absolute;
+    z-index: 999;
+    display: none;
+}
+
+.navDiv ul li a:hover{
+    background: #FFF1E6;;
+}
+
+.navDiv ul li:hover ul.dropdown{
+    display: block;
+    justify-content: space-between;
+
+}
+
+button {
+    background-color: #F8943F;
+    border-radius: 50px;
+    padding: 8px 16px;
+    border: 1px solid #DE6F0D;
+    color: white;
+    font-size: 16px; /* Reduce font size for smaller screens */
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+button img {
+    margin-right: 5px;
+    height: 20px; /* Reduce image size for smaller screens */
+}
+
+button a {
+    text-decoration: none;
+    color: white;
+}
+
+.Help button {
+    background-color: #FFF1E6;
+    border-radius: 50px;
+    padding: 8px 16px;
+    border: 1px solid #FBBE9C;
+    color: black;
+    font-size: 16px; /* Reduce font size for smaller screens */
+    font-weight: 600;
+    margin-left: 10px;
+    white-space: nowrap;
+}
+
+.navDiv ul li:not(:last-child)::after {
+    content: "";
+    position: absolute;
+    top: 50%;
+    right: -5px;
+    transform: translateY(-50%);
+    width: 1px;
+    height: 60%;
+    background-color: black;
+}
+
+
+/* Slider*/
+
+.slider-container {
+    position: relative;
+    overflow: hidden;
+    width: 100%;
+    max-width: 2000px; /* Adjust max-width as needed */
+    margin: 0 auto;
+}
+
+.slider {
+    display: flex;
+    transition: transform 0.5s ease;
+}
+
+.slider img {
+    width: 100%;
+    display: block;
+}
+
+.slider-pointer {
+    position: absolute;
+    bottom: 10px;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+}
+
+.slider-pointer span {
+    width: 10px;
+    height: 10px;
+    background-color: gray;
+    border-radius: 50%;
+    margin: 0 5px;
+    cursor: pointer;
+}
+
+.slider-pointer span.active {
+    background-color: black;
+}
+
+/*Image Card*/
+
+.heading{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #FFF9F4;
+    max-width: 1100px; /* Changed width to max-width for responsiveness */
+    margin: 20px auto auto; /* Center the container */
+    padding: 20px; /* Added padding for spacing */
+    text-align: center;
+}
+
+.heading .heading-content{
+    display: flex;
+    flex-direction: column;
+}
+
+.card-container{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #FFF9F4;
+    max-width: 1100px; /* Changed width to max-width for responsiveness */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Added padding for spacing */
+    
+}
+
+.card{
+    width: calc(16.666% - 20px); /* Adjusted width for six cards per row and added spacing */
+    
+    border-radius: 8px;
+    overflow: hidden;
+    margin: 10px; /* Added margin for spacing between cards */
+    flex-grow: 1; /* Allow cards to grow within the flex container */
+
+}
+
+.card img{
+    height: 130px;
+}
+
+.footer{
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    background: #FFF9F4;
+    max-width: 1100px; /* Changed width to max-width for responsiveness */
+    margin: 0 auto; /* Center the container */
+    padding: 20px; /* Added padding for spacing */
+    text-align: center;
+
+}
+
+.booking-container{
+    margin-top: 80px;
+    display: grid;
+    height: 100vh;
+    grid-template-columns: 1fr 1fr 1fr;
+    grid-template-rows: 1.5fr 1.3fr;
+    grid-template-areas: "sidebar main main"
+                          "sidebar box1 box2";
+    grid-gap: 0.2rem;
+}
+
+main{grid-area: main;}
+main img{height: 280px;}
+.sidebar{grid-area: sidebar;}
+.sidebar img{height: 550px; margin-left: 190px;}
+.box1{grid-area: box1;}
+.box1 img{height: 250px; margin-top: -130px;}
+.box2{grid-area: box2;}
+.box2 img{height: 250px; width: 280px; margin-top: -130px; margin-left: -70px;}
+
+
+.wrappe-heading{
+    text-align: center;
+    margin-bottom: 60px;
+}
+
+
+.wrapper{
+    margin-left: 50px;
+    height: 520px;
+    border: 1px solid black;
+    display: flex;
+    overflow-x: auto ;
+    overflow-y: hidden;
+    border: none;
+
+}
+
+.wrapper .item{
+    min-width: 300px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+
+    margin-right: 10px;
+    
+}
+
+
+
+.wrapper .item img{
+    height: 510px;
+    width: 280px;
+}
+
+
+
+.main-div{
+    display: flex;
+    flex-direction: row;
+    justify-content: space-around;
+    background-color: #FFF9F4;
+    margin-top: 100px;
+}
+
+.main-div .red{
+    background-color: #FFF9F4;
+    width: 800px;
+    margin-left: 100px;
+}
+
+.main-div .red .red-container{
+    margin-top: 70px;
+}
+
+.main-div .red .red-container h1{
+    font-size: 30px;
+}
+
+.main-div .red .red-container .red-content{
+    margin-top: 50px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: flex-start;
+    background-color: #FFF9F4;
+}
+
+.main-div .red .red-container .red-content img{
+    height: 70px;
+    width: 350px;
+    margin-bottom: 20px;
+}
+
+.main-div .green{
+    background-color: #FFF9F4;
+    
+   margin-left: 100px;
+    overflow-x: auto ;
+    overflow-y: hidden;
+    border: none;
+}
+
+.main-div .green .wrapper2{
+    margin-top: 60px;
+    margin-left: 00px;
+    height: 320px;
+    border: 1px solid black;
+    display: flex;
+    overflow-x: auto ;
+    overflow-y: hidden;
+    border: none;
+}
+
+.main-div .green .wrapper2 .item2{
+    min-width: 300px;
+    height: 110px;
+    line-height: 110px;
+    text-align: center;
+    margin-right: 10px;
+}
+
+.main-div .green .wrapper2 .item2 img{
+    height: 310px;
+    width: 230px;
+    border-radius: 10px;
+}
+
+.main-div .green button{
+    margin-top: 20px;
+    background-color: #F8943F;
+    width: 300px;
+
+    border-radius: 50px;
+    padding: 8px 16px;
+    border: 1px solid #DE6F0D;
+    color: white;
+    font-size: 24px; /* Reduce font size for smaller screens */
+    font-weight: 300;
+    margin-left: 30px;
+    white-space: nowrap;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+
+}
+@keyframes slide {
+    from{
+        transform: translateX(0);
+    }
+    to{
+        transform: translateX(-100%);
+    }
+}
+.logos{
+    margin-bottom: 60px;
+    overflow: hidden;
+    padding: 10px 0;
+    background: #FFF1E6;
+    white-space: nowrap;
+
+}
+.logos:hover .logos-slide{
+    animation-play-state: paused;
+}
+.logos-slide{
+    
+    animation: 60s slide infinite linear;
+    display: inline-block;
+
+}
+
+.logos-slide img{
+    height: 30px;
+    margin: 0 40px;
+}
+
+
+.product{
+    position: relative;
+    overflow: hidden;
+    padding: 20px;
+    
+}
+
+.product-container{
+    padding: 0 10vw;
+    display: flex;
+    overflow-x: auto;
+    overflow-y: hidden;
+    scroll-behavior: smooth;
+   
+    
+}
+
+.product-container::-webkit-scrollbar{
+    display: none;
+}
+
+.product-card{
+    flex: 0 0 auto;
+    width: 950px;
+    height: 450px;
+    margin-right: 40px;
+
+}
+
+.product-image{
+    position: relative;
+    width: 100%;
+    height: 950px;
+    overflow: hidden;
+    border-radius: 20px;
+}
+
+.product-thumb{
+    width: 100%;
+    height: 48%;
+    overflow: hidden;
+    object-fit: cover;
+}
+
+.pre-btn,.nxt-btn{
+    position: absolute;
+    top: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    z-index: 9;
+}
+
+.pre-btn{
+    left: 0;
+
+}
+
+.nxt-btn{
+    right: 0;
+}
+
+.FAQ-main{
+
+    display: flex;
+    flex-wrap: wrap;
+    background: white;
+    max-width: 1100px; /* Changed width to max-width for responsiveness */
+    margin: 80px auto auto; /* Center the container */
+    padding: 20px; /* Added padding for spacing */
+   
+}
+.FAQ-main .FAQ-heading
+
+.FAQ-main .accordian{
+    margin: 0px auto;
+    width: 600px;
+    display: flex; /* Change display to flex */
+    justify-content: space-between; /* Add space between items */
+   
+    flex-direction: column;
+
+    
+
+}
+
+.accordian li{
+    list-style: none;
+    width: 100%;
+    margin: 20px;
+    padding: 10px;
+    border-radius: 8px;
+    background: white;
+    box-shadow: 6px 6px 10px -1px rgba(0, 0, 0, 0.15), -6px -6px 10px -1px rgba(255, 255, 255, 0.7) ;
+    
+}
+
+.accordian li label{
+    display: flex;
+    align-items: center;
+    padding: 10px;
+    font-size: 18px;
+    font-weight: 500;
+    cursor: pointer;
+}
+
+label::before{
+    content: '+';
+    margin-right: 10px;
+    font-size: 24px;
+    font-weight: 600;
+}
+
+input[type='radio']{
+    display: none;
+}
+
+.accordian .content{
+    color: #555;
+    padding: 0 10px;
+    line-height: 26px;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.5s, padding 0.5s;
+}
+
+.accordian input[type='radio']:checked + label + .content{
+    max-height: 400px;
+    padding: 10px 10px 20px;
+}
+
+.accordian input[type='radio']:checked + label::before{
+    content: '-';
+}
+
+
+.main-footer {
+    background: #3D2010; /* Change background color to brown */
+    text-align: center;
+    padding: 20px;
+}
+
+.main-footer img {
+    max-width: 100%; /* Make the image responsive */
+    height: auto;
+}
+
+
+/* Media query for smaller screens */
+@media only screen and (max-width: 768px) {
+    .navbar {
+        padding: 16px 15px; /* Adjusted padding for smaller screens */
+    }
+
+    .navDiv ul li {
+        margin-right: 10px;
+        margin-left: 2px; /* Keep desktop version margin */
+        font-size: 8px; /* Further reduce font size for smaller screens */
+    }
+
+    .navDiv ul li a {
+        margin-right: 1px; /* Keep desktop version margin */
+        font-size: 7px; /* Further reduce font size for smaller screens */
+    }
+
+    button {
+        padding: 3px 4px; /* Adjusted padding for smaller screens */
+        font-size: 4px; /* Further reduce font size for smaller screens */
+        font-weight: 50;
+    }
+
+    button img {
+        height: 3px; /* Further reduce image size for smaller screens */
+        margin-right: 1px;
+    }
+
+    .Help button {
+        padding: 3px 3px; /* Adjusted padding for smaller screens */
+        font-size: 4px; /* Further reduce font size for smaller screens */
+        font-weight: 50;
+    }
+    .Help button img{
+        height: 3px;
+        margin-right: 1px;
+    }
+
+    .logo {
+        margin-right: 5px; /* Keep desktop version margin */
+        width: 40px; /* Reduce logo size for smaller screens */
+    }
+
+    .flip-text h1,
+    .flip-text h2 {
+    margin: 0;
+    font-size: 10px;
+    text-align: center;
+}
+
+    .content-container {
+        display: flex; /* Display content in a row */
+        align-items: center; /* Vertically center align content */
+        padding-left: 20px;
+        padding-top: 50px;
+        background-color: #F8F8F8;
+    }
+
+    .orange-line{
+        margin: 0 30px;
+    }
+
+    .select-city span {
+        width: 100px;
+        font-size: 10px;
+        padding: 5px;
+    }
+
+    .card {
+        width: calc(33.333% - 20px);
+    }
+
+
+    .booking-container {
+        margin-top: 10px;
+        grid-template-columns: 1fr 1fr 1fr; /* Change to single column layout for smaller screens */
+        grid-template-rows: auto; /* Allow rows to adjust based on content */
+        grid-template-areas: 
+            "sidebar main"
+            "sidebar box1 box2";
+    }
+
+   
+    main img{
+        height: 100px;
+    }
+
+    .sidebar img {
+        margin-left: auto; /* Center sidebar image on smaller screens */
+        margin-right: auto;
+        height: 200px;
+    }
+
+    .box1 img{
+        height: 75px;
+        margin-bottom: 550px;
+    }
+    .box2 img{
+        height: 75px;
+        width: 100px;
+        margin-bottom: 550px;
+    }
+
+    .box2 img {
+        margin-left: auto; /* Center box2 image on smaller screens */
+        margin-right: auto;
+    }
+
+    .heading h1{
+        font-size: 15px;
+    }
+
+    .card img{
+        height: 80px;
+    }
+
+    .footer img{
+        height: 10px;
+    }
+
+    .wrappe-heading{
+        margin-top: -600px;
+    }
+
+    .main-div .red{
+        background-color: #FFF9F4;
+        width: 800px;
+        margin-left: 5px;
+    }
+
+    .main-div .red .red-container h1{
+        font-size: 20px;
+        text-align: center;
+    }
+
+    .product-thumb{
+        width: 80%;
+        height: 38%;
+        overflow: hidden;
+        object-fit: cover;
+    }
+
+   
+    
+    
+
+ 
+
+
+}
